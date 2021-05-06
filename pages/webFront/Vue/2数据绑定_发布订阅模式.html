@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>发布订阅模式定义 | 人生在勤，不索何获</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/logo.png">
+    <meta name="description" content="web html js javascript">
+    <link rel="preload" href="/assets/css/0.styles.f0e6d47e.css" as="style"><link rel="preload" href="/assets/js/app.2e628677.js" as="script"><link rel="preload" href="/assets/js/2.691c779f.js" as="script"><link rel="preload" href="/assets/js/3.6ad21635.js" as="script"><link rel="preload" href="/assets/js/45.4726e13b.js" as="script"><link rel="preload" href="/assets/js/4.1b497f39.js" as="script"><link rel="prefetch" href="/assets/js/10.d1292ffc.js"><link rel="prefetch" href="/assets/js/11.2534afc0.js"><link rel="prefetch" href="/assets/js/12.47fdff2c.js"><link rel="prefetch" href="/assets/js/13.6fbdcb8c.js"><link rel="prefetch" href="/assets/js/14.3e22e510.js"><link rel="prefetch" href="/assets/js/15.98415537.js"><link rel="prefetch" href="/assets/js/16.1ee4a592.js"><link rel="prefetch" href="/assets/js/17.924d5e81.js"><link rel="prefetch" href="/assets/js/18.d87814c0.js"><link rel="prefetch" href="/assets/js/19.a936e280.js"><link rel="prefetch" href="/assets/js/20.2cfca6bf.js"><link rel="prefetch" href="/assets/js/21.64440547.js"><link rel="prefetch" href="/assets/js/22.a7d85fee.js"><link rel="prefetch" href="/assets/js/23.20b63e35.js"><link rel="prefetch" href="/assets/js/24.fa2899f4.js"><link rel="prefetch" href="/assets/js/25.56f65808.js"><link rel="prefetch" href="/assets/js/26.66672954.js"><link rel="prefetch" href="/assets/js/27.84cd7335.js"><link rel="prefetch" href="/assets/js/28.e427cf1d.js"><link rel="prefetch" href="/assets/js/29.34f40d3c.js"><link rel="prefetch" href="/assets/js/30.6d298fa8.js"><link rel="prefetch" href="/assets/js/31.6a12774e.js"><link rel="prefetch" href="/assets/js/32.822e814d.js"><link rel="prefetch" href="/assets/js/33.9a3cb4f0.js"><link rel="prefetch" href="/assets/js/34.afe75808.js"><link rel="prefetch" href="/assets/js/35.32509d42.js"><link rel="prefetch" href="/assets/js/36.44fbdfc7.js"><link rel="prefetch" href="/assets/js/37.6babdcf8.js"><link rel="prefetch" href="/assets/js/38.d40edf41.js"><link rel="prefetch" href="/assets/js/39.b36b6fba.js"><link rel="prefetch" href="/assets/js/40.d082a05a.js"><link rel="prefetch" href="/assets/js/41.ce69422c.js"><link rel="prefetch" href="/assets/js/42.08f75dd5.js"><link rel="prefetch" href="/assets/js/43.d7a1e344.js"><link rel="prefetch" href="/assets/js/44.0942fb57.js"><link rel="prefetch" href="/assets/js/46.9fc00540.js"><link rel="prefetch" href="/assets/js/47.68591cfa.js"><link rel="prefetch" href="/assets/js/48.eb791eb4.js"><link rel="prefetch" href="/assets/js/49.7312592f.js"><link rel="prefetch" href="/assets/js/5.b952e597.js"><link rel="prefetch" href="/assets/js/50.ee6d928c.js"><link rel="prefetch" href="/assets/js/51.0e7f7f6a.js"><link rel="prefetch" href="/assets/js/52.150f46f9.js"><link rel="prefetch" href="/assets/js/53.478a2c8c.js"><link rel="prefetch" href="/assets/js/54.2cbcf841.js"><link rel="prefetch" href="/assets/js/55.c666b6fe.js"><link rel="prefetch" href="/assets/js/56.9d03cb49.js"><link rel="prefetch" href="/assets/js/57.d4245fa5.js"><link rel="prefetch" href="/assets/js/58.aa49fa02.js"><link rel="prefetch" href="/assets/js/59.c3f363c2.js"><link rel="prefetch" href="/assets/js/6.1e1194e2.js"><link rel="prefetch" href="/assets/js/60.08d9d4a5.js"><link rel="prefetch" href="/assets/js/61.f32fd35c.js"><link rel="prefetch" href="/assets/js/62.88a40684.js"><link rel="prefetch" href="/assets/js/63.58e41df9.js"><link rel="prefetch" href="/assets/js/64.7b27c5ef.js"><link rel="prefetch" href="/assets/js/65.91f01b83.js"><link rel="prefetch" href="/assets/js/66.39cf6497.js"><link rel="prefetch" href="/assets/js/67.c9e5f6f0.js"><link rel="prefetch" href="/assets/js/68.eea42972.js"><link rel="prefetch" href="/assets/js/69.a2a250ec.js"><link rel="prefetch" href="/assets/js/7.8cc75bd3.js"><link rel="prefetch" href="/assets/js/70.816a03b6.js"><link rel="prefetch" href="/assets/js/71.710f353c.js"><link rel="prefetch" href="/assets/js/72.e8e4e37f.js"><link rel="prefetch" href="/assets/js/73.c0947d14.js"><link rel="prefetch" href="/assets/js/74.2df5c0fe.js"><link rel="prefetch" href="/assets/js/75.802f8ca5.js"><link rel="prefetch" href="/assets/js/76.078961a1.js"><link rel="prefetch" href="/assets/js/77.d2754041.js"><link rel="prefetch" href="/assets/js/78.e118bb12.js"><link rel="prefetch" href="/assets/js/79.c011caf7.js"><link rel="prefetch" href="/assets/js/8.56a419eb.js"><link rel="prefetch" href="/assets/js/80.ae61d54b.js"><link rel="prefetch" href="/assets/js/81.cd3b8235.js"><link rel="prefetch" href="/assets/js/82.da821509.js"><link rel="prefetch" href="/assets/js/83.d65cf916.js"><link rel="prefetch" href="/assets/js/84.2a9b5f83.js"><link rel="prefetch" href="/assets/js/85.9f56b3d8.js"><link rel="prefetch" href="/assets/js/86.fbda71ac.js"><link rel="prefetch" href="/assets/js/87.f1fea485.js"><link rel="prefetch" href="/assets/js/88.24c5a7aa.js"><link rel="prefetch" href="/assets/js/89.4644a789.js"><link rel="prefetch" href="/assets/js/9.389af04d.js"><link rel="prefetch" href="/assets/js/90.3d19a452.js"><link rel="prefetch" href="/assets/js/91.e9e6addb.js"><link rel="prefetch" href="/assets/js/92.9d61f158.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f0e6d47e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo_ci.png" alt="人生在勤，不索何获" class="logo"> <span class="site-name can-hide">人生在勤，不索何获</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web前端" class="dropdown-title"><span class="title">Web前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/webFront/javascript/run/this指向.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/pages/webFront/css/各种FC.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/pages/webFront/Vue/1数据绑定_Observe.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/pages/webFront/浏览器/兼容.html" class="nav-link">
+  浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/pages/webFront/面试题/CSS3新特性.html" class="nav-link">
+  面试题
+</a></li></ul></div></div><div class="nav-item"><a href="/pages/node_js/node1.html" class="nav-link">
+  Node.js
+</a></div><div class="nav-item"><a href="/pages/webpack/wb1.html" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/pages/server/概念/socket.html" class="nav-link">
+  服务器
+</a></div><div class="nav-item"><a href="/pages/algorithm/冒泡排序.html" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/pages/computer/基础/语言类型.html" class="nav-link">
+  计算机基础
+</a></div><div class="nav-item"><a href="/pages/software/VSCode相关.html" class="nav-link">
+  软件使用
+</a></div><div class="nav-item"><a href="/pages/other/简历/my.html" class="nav-link">
+  关于我
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web前端" class="dropdown-title"><span class="title">Web前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/webFront/javascript/run/this指向.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/pages/webFront/css/各种FC.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/pages/webFront/Vue/1数据绑定_Observe.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/pages/webFront/浏览器/兼容.html" class="nav-link">
+  浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/pages/webFront/面试题/CSS3新特性.html" class="nav-link">
+  面试题
+</a></li></ul></div></div><div class="nav-item"><a href="/pages/node_js/node1.html" class="nav-link">
+  Node.js
+</a></div><div class="nav-item"><a href="/pages/webpack/wb1.html" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/pages/server/概念/socket.html" class="nav-link">
+  服务器
+</a></div><div class="nav-item"><a href="/pages/algorithm/冒泡排序.html" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/pages/computer/基础/语言类型.html" class="nav-link">
+  计算机基础
+</a></div><div class="nav-item"><a href="/pages/software/VSCode相关.html" class="nav-link">
+  软件使用
+</a></div><div class="nav-item"><a href="/pages/other/简历/my.html" class="nav-link">
+  关于我
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>仿源码</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/webFront/Vue/1数据绑定_Observe.html" class="sidebar-link">1数据绑定_Observe</a></li><li><a href="/pages/webFront/Vue/2数据绑定_发布订阅模式.html" class="active sidebar-link">2数据绑定_发布订阅模式</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/webFront/Vue/3数据绑定_Vue类实现.html" class="sidebar-link">3数据绑定_Vue类实现</a></li><li><a href="/pages/webFront/Vue/4数据绑定_data更改.html" class="sidebar-link">4数据绑定_Vue访问data更改</a></li><li><a href="/pages/webFront/Vue/5DOM编译_Compile_双大括号模板讲解.html" class="sidebar-link">5DOM编译_Compile声明式渲染</a></li><li><a href="/pages/webFront/Vue/6DOM编译_v-model讲解.html" class="sidebar-link">6DOM编译_v-model讲解</a></li><li><a href="/pages/webFront/Vue/7DOM编译_v-on事件绑定讲解.html" class="sidebar-link">7DOM编译_v-on事件绑定讲解</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>定义组件</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>项目中使用</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="发布订阅模式定义"><a href="#发布订阅模式定义" class="header-anchor">#</a> 发布订阅模式定义</h3> <p>注意: 观察者模式 和 发布订阅模式 不是相同的概念哦</p> <ol><li>思路:</li></ol> <ul><li>新建Dep类, 在属性劫持时(可以采用观察者), 往Dep中给每个属性绑定一个Watcher对象(订阅动作)</li> <li>当属性触发set方法时, 调用Dep里所有的watcher执行(发布动作)</li> <li>Watcher里是更新DOM操作的
+<img src="/webFront/screenshot_1554556891707.png" alt=""></li></ul> <ol start="2"><li>代码如下:</li></ol> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">myObjectDefinePropery</span><span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> key<span class="token punctuation">,</span> val</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> val <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">observe</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 7. 实例化Dep类对象(每个key都有一个Dep, 负责桥接属性变化和Watcher的)</span>
+    <span class="token comment">// 因为一个key可能触发多个要执行的函数, 函数用Watcher装载</span>
+    <span class="token keyword">let</span> dep <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">get</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 8. (Dep.target 指的是Watcher实例对象, 如果有, 则添加到Dep对象上)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>Dep<span class="token punctuation">.</span>target<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token comment">// 9. 添加Watcher到Dep对象中</span>
+                dep<span class="token punctuation">.</span><span class="token function">addSub</span><span class="token punctuation">(</span>Dep<span class="token punctuation">.</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> val<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function-variable function">set</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">newVal</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 判断set时值一样则退出</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">===</span> newVal<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            val <span class="token operator">=</span> newVal<span class="token punctuation">;</span>
+            <span class="token comment">// 10. 属性发生变化, 通知Dep, 调用所有Wathcer执行对应方法(发布订阅模式核心-要发布了)</span>
+            dep<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">observe</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">myObjectDefinePropery</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> key<span class="token punctuation">,</span> data<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 1. 新建Dep类, 属性改变, 触发方法, 收集这些方法</span>
+<span class="token keyword">function</span> <span class="token function">Dep</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 用于放置每个属性变化时应该执行的方法体</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>watcherArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token class-name">Dep</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 2. 用于添加属性改变对应执行的方法</span>
+    <span class="token function-variable function">addSub</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">watcher</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>watcherArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>watcher<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 3. 用于通知所有watcher, 让watcher执行自己对应的方法体</span>
+    <span class="token function-variable function">notify</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>watcherArr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">watcher</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// 4. 执行对应代码, 可以跳转到Watcher类的update方法查看</span>
+            watcher<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 5. 定义watcher类, 用于监视某些属性</span>
+<span class="token keyword">function</span> <span class="token function">Watcher</span><span class="token punctuation">(</span><span class="token parameter">model<span class="token punctuation">,</span> exp</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 用在Object.definePropery的get方法中, 用于保存当前watcher对象</span>
+    Dep<span class="token punctuation">.</span>target <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token comment">// 给这个model绑定数据劫持</span>
+    <span class="token function">observe</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 触发Object.definePropery的get方法</span>
+    model<span class="token punctuation">[</span>exp<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 6. 属性被修改了, 触发update方法</span>
+<span class="token class-name">Watcher</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">update</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;属性更新了&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 11. 实例化中间对象, 让它观察这个对象</span>
+<span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token punctuation">{</span>
+    userName<span class="token operator">:</span> <span class="token string">&quot;&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span> <span class="token class-name">Watcher</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> <span class="token string">&quot;userName&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 12. 修改属性值, 看update方法里代码是否执行</span>
+model<span class="token punctuation">.</span>userName <span class="token operator">=</span> <span class="token string">&quot;ok&quot;</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br></div></div><p><a href="https://github.com/lidongxuwork126com/ldx_vue/tree/master/%E4%BB%BFVue%E6%BA%90%E7%A0%81" target="_blank" rel="noopener noreferrer">当前页源代码<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <br>
+那么如何模拟Vue类呢, 看下个文章</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新时间:</span> <span class="time">9/25/2020, 9:21:50 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/pages/webFront/Vue/1数据绑定_Observe.html" class="prev">
+        1数据绑定_Observe
+      </a></span> <span class="next"><a href="/pages/webFront/Vue/3数据绑定_Vue类实现.html">
+        3数据绑定_Vue类实现
+      </a>
+      →
+    </span></p></div> </main> <section class="page" style="border-top:2px solid #eaecef;padding-top:1rem;margin-top:2rem;padding-right:2.5rem;display:none;"><div style="padding-left:2.5rem;"><span data-flag-title="Your Article Title" class="leancloud-visitors"><em class="post-meta-item-text">阅读量：</em> <i class="leancloud-visitors-count"></i></span></div> <h3 style="padding-left:2.5rem;">发表评论：</h3> <div id="vcomments" style="padding-left:2.5rem;"></div></section></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.2e628677.js" defer></script><script src="/assets/js/2.691c779f.js" defer></script><script src="/assets/js/3.6ad21635.js" defer></script><script src="/assets/js/45.4726e13b.js" defer></script><script src="/assets/js/4.1b497f39.js" defer></script>
+  </body>
+</html>
